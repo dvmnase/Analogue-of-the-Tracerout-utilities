@@ -5,20 +5,47 @@
 #include <chrono>
 #include <thread>
 #include "traceroute.h"
+
+
 #pragma comment(lib, "ws2_32.lib")
+
+
 
 int main(int argc, char* argv[])
 {
     WSADATA wsaData;
-    int wsaResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
-    if (wsaResult != 0) {
-        cout << "WSAStartup failed with error: " << wsaResult << endl;
-        return 1; // Завершаем программу с ошибкой
+    try {
+       
+        int wsaResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+        if (wsaResult != 0) {
+            cerr << "WSAStartup failed with error: " << wsaResult << endl;
+            return 1; 
+        }
+
+        if (argc < 2) {
+            cerr << "Usage " << argv[0] << " IP ADDRESS" << endl;
+            WSACleanup;
+            return 1;
+        }
+        char* IP = argv[1];
+ 
+        TraceRoute(IP);
+        WSACleanup(); //Завершение работыс Winock
+        return 0;
     }
-    char* IP = argv[1];
-   // char* IP = nullptr;
-    TraceRoute(IP);
-    WSACleanup(); //Завершение работыс Winock
-    return 0;
+    catch (const exception& e) {
+        cerr << "Error " << e.what() << endl;
+        WSACleanup();
+        return 1;
+    }
+    catch (...) {
+        cerr << "An unknown error occurred" << endl;
+        WSACleanup();
+        return 1;
+    }
 }
 
+// получать данные из аргументов командной строки
+//результат выводится на консоль
+//обработка исключительных ситуаций
+//модульные тесты для основных функций утилиты

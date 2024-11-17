@@ -1,6 +1,3 @@
 ﻿  main.cpp
-  traceroute.cpp
-C:\Users\celjd\Analogues of the Traceroute utility\AnaloguesTracerouteUtility\AnaloguesTracerouteUtility\traceroute.cpp(28,24): warning C4244: '=': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\celjd\Analogues of the Traceroute utility\AnaloguesTracerouteUtility\AnaloguesTracerouteUtility\traceroute.cpp(55,86): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
+C:\Users\celjd\Analogues of the Traceroute utility\AnaloguesTracerouteUtility\AnaloguesTracerouteUtility\main.cpp(27,13): warning C4551: function call missing argument list
   AnaloguesTracerouteUtility.vcxproj -> C:\Users\celjd\Analogues of the Traceroute utility\AnaloguesTracerouteUtility\x64\Debug\AnaloguesTracerouteUtility.exe
